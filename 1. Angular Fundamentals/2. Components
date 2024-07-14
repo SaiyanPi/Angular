@@ -3,5 +3,5 @@ COMPONENTS
     - register it in a module
     - add an element in an HTML markup
 
-    Inspect & Run AngularFundamentals project to see implementation.
+    Inspect & Run ProjectAngular to see implementation.
     -> courses.component.ts is our newly created component.

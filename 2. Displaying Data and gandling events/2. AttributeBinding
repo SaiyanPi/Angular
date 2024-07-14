@@ -1,0 +1,33 @@
+ATTRIBUTE BINDING
+
+- most of the attributes of HTML element have a one to one mapping(has representation) 
+to properties of DOM objects.
+
+- however, there are exceptions.
+    -> for example :
+
+        <table>
+            <tr>
+                <td [colspan] = "colSpan"></td>
+            </tr>
+        </table>
+
+        we have a HTML attribute 'colspan' which doesn't have a representation in DOM.
+
+    -> that's why we get an error:
+        "Can't bind to 'colspan' since it isn't a known property of 'td'.ngtsc(-998002)"
+
+    -> to bind 'colspan' attribute of <td> elemet we need to use 'attr.' before the attrubute like
+
+        <table>
+            <tr>
+                <td [attr.colspan] = "colSpan"></td>
+            </tr>
+        </table>
+
+- also we have a properties in DOM that do not have a representation in HTML
+    -> for example:
+        <h2 [textContent]="title"></h2> 
+        here 'textContent is a property of DOM object and in HTML we don't have a such attribute.
+
+- ATTRIBUTE BINDING is binding of HTML attribute 

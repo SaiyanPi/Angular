@@ -1,9 +1,10 @@
 TEMPLATES
 
 
-- we can render PROPERTY and METHODS on a template dynamically using 
+- we can render PROPERTY and METHODS on a template dynamically using INTERPOLATION
 
   syntax: {{ property_name/method_name }}
+  
 - we can break template into multiple line using backtick('') synbol to make it more readable.
   eg: template: `<h2> {{ property_name }} <h2> // rendering property
                  <p> {{ method_name }} <p>     // rendering method

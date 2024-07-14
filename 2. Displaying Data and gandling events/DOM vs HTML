@@ -1,0 +1,41 @@
+
+DOM(Document Object Model)
+- DOM is a model of objects that represents the structure of the documents.
+- programming API for HTML and XML documents.
+- it defines the logical structure of documents and the way a document is accessed and manipulated.
+- essentially a tree of objects in memory.
+- following is the representation of the following HTML table in DOM
+
+                             <TABLE>
+                                |
+                                v
+                              <ROWS>
+                              /    \
+                             v      v
+                          <TR>      <TR>
+                         /   \      /   \
+                        v     v    v     v
+                     <TD>    <TD> <TD>   <TD>
+                      |       |     |      |
+                      v       v     v      v
+                   program   code  .net   angular
+
+
+
+
+HTML(Hypertext Markup Language)
+- markup language we use to represent DOM in text.
+
+                        <TABLE>
+                            <ROWS>
+                                <TR>
+                                    <TD>program</TD>
+                                    <TD>code</TD>
+                                </TR>
+                                <TR>
+                                    <TD>.net</TD>
+                                    <TD>angular</TD>
+                                </TR>
+                            </ROWS>
+                        </TABLE>
+    

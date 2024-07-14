@@ -1,0 +1,18 @@
+PROPERTY BINDING
+
+- as we already know from the Angular Fundamentals, we can render the property and methods using interpolation.
+- another way to do so is PROPERTY BINDING.
+- inspect ProjectAngular/courses.components.ts file to view implementation.
+
+- WEther we should use STRING INTERPOLATION or PROPERTY BINDING?
+    -> INTERPOLATION works well for adding dynamic values between headings.
+
+       eg,  <h2>{{ title }}</h2>
+
+    -> PROPERTY BINDING works only one way from component to DOM
+
+            <h2 [textContent]="title"></h2>
+
+- PROPERTY BINDING is actually binding a property of DOM object and not an attribute of an HTML element.
+  in above property binding example 'textContent' is a DOM property.
+  (read ATTRIBUTE BINDING and DOM vs HTML for clear understanding)
