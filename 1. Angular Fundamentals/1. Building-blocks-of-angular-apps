@@ -1,0 +1,29 @@
+
+1. COMPONENT = encapsulates the Data, HTML Template, Logic
+
+  Idea of COMPONENT:
+
+    for example a site can have a many pages.
+    - we can consider each pages as a different components.
+    even on a single page there will be a section like navbar, sidebar, and content area.
+    - we can consider each section as a different components.
+    even in the content area section there could be many contents.
+    - we can consider each contents as a different components.
+    each copntent could have a rating feature.
+    - we can consider rating feature as a rating component which can be reuse in multiple place of the same app or a different app.
+
+
+2. MODULES = a container for a group of related COMPONENTS.
+  Idea of MODULES:
+
+    for example a supermarket have a different sections like hardware section, vegetable section, drinks section etc.
+    - we can consider each sections as a different modules.
+    - simple application have only one module which we call 'App Module'
+    - but as our application grows in functionality we may need to break the 'App' module into smaller moidules with each module responsible for a specific area of our application.
+    - in each module we will have a bunch of related components.
+    - for a site like Udemy, a modules can be 
+        -> Courses Module
+        -> Messaging Module
+        -> Admin Module
+        -> Instructor Module etc
+ 

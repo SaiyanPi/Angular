@@ -1,0 +1,8 @@
+COMPONENTS SCAFFOLDING
+
+creating component is a long process
+- first we've to create a component.
+- then we have to register it on a module.
+- and then ad an element in HTML.
+there is a chance of missing steps and hence of error. So it is a lot faster to create a component using angular CLI.
+-Syntax: ng g c component_name

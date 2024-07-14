@@ -1,0 +1,7 @@
+SERVICES
+
+- we don't write logic for calling an HTTP service directly in the component itself beacuse
+    -> it'll tightly couple the component to that HTTP endpoint.
+    -> if we need the same logic somewhere else in the application, we have to repeat the same logic code again.
+    -> and component should not include any logic other than the presentation logic(logic behind the view). eg, what should happen when selected an item from the dropdown list. 
+    but the details of how the content(courses in case of our AngularFundametals) are retrieved should be delegated somewhere else in our application. and we use SERVICES for that.

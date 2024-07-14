@@ -1,0 +1,35 @@
+SCAFFOLDING SERVICES
+
+- we can generate a service using angular CLI
+- syntax: ng g s service_name
+    -> this will generate 2 files service, and the service.spec file
+    -> if we inspect the service file then we will see a decorator function 
+           
+            @Injectable({
+                providedIn: 'root'
+            })
+
+        just like the component decorator function @Component({......}) in the component.
+
+    -> so the question is WHY DO WE NEED THE SERVICE DECORATOR FUNCTION '@Injectable({..})'?
+    -> We need this decorator ONLY IF THE SERVICE HAD DEPENDENCIES IN ITS CONSTRUCTOR.
+    -> if we inspect the 'sourses.service.ts' file(created manually), there is no service decorator 
+        function there, because sourses service doesn't have any dependencies in its constructor.
+
+        export class CoursesService{
+            getCourses(){
+            return ['Course I', 'Course II', 'Course III'];
+            }
+            // no constructor in this service hence no dependencies in the constructor.
+        }
+
+    -> but if there were dependencies in the service class constructor like
+        export class CoursesService{
+            getCourses(){
+            return ['Course I', 'Course II', 'Course III'];
+            }
+            constructor(anyService: anyService){
+                //
+            }
+        }
+        then we would have a need of service decorator function.

@@ -1,0 +1,24 @@
+DEPENDENCY INJECTION
+
+- as discussed in service documentation, we've created a 'courses.service.ts' file and created a method 'getCourses()' inside it.
+
+- inorder to use that service inside our components, we need to create an instance/object of that service classinside the constructor of our component class as:
+        constructor(){
+            let service = new CoursesService();
+            his.courses = service.getCourses();
+            }
+- but doing so still tightly couples our component as mentioned in the service documentation.
+
+- so WHAT TO DO?
+    -> well! instead of creating an instance of a service ourselves, we need to say angular to create an instance of our service class for us like:
+            constructor(service: CoursesService){
+                this.courses = service.getCourses();
+            }
+            and this is called DEPEDENCY INJECTATION
+    -> but inorder for this dependency injection to work, we need to register this depedency in the 'providers' section of our module.
+            providers: [
+            CoursesService
+            ],
+
+- when we register a dependency as a 'provider' in the module, angular will create a single instance of that class(service class in our case) for the entire module.
+So let's say we have 100 components in our application and 50 of them need courses service in this case, in the memory we're gonna have only a single instance of a courses service and the angular will pass the single instance to all 50 components, this is what we call SINGLETON pattern.
