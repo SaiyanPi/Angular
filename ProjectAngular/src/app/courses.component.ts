@@ -26,13 +26,25 @@ import { CoursesService } from "./courses.service";
                         <td [attr.colspan] = "colSpan"></td>  <!-- attribute binding -->
                     </tr>
                 </table>
+
+                <!-- bootstrap -->
+                 <button class="btn btn-danger" [class.active]="isActive">Delete</button> <!--class binding-->
+                 <button [style.backgroundColor]="isActive ? 'red' : 'white'">Delete</button> <!--style binding-->
+                 <button (click)="onDelete()">Delete</button> <!--event binding-->
+                 <button (click)="onSave($event)">Save</button>  <!--event binding with access to event object-->
+                 <!--event bubbling-->
+                 <div (click)="onDivClick()">
+                    <button (click)="onBubbleClick($event)">Bubble</button>
+                 </div>
                 `
 })
 export class CoursesComponents{
     title = "List of Courses"; //property/field
     books = ["Book 1", "Book 2", "Book 3"]; //string array (string[]) property
+    courses;
     imageUrl = "https://media.istockphoto.com/id/147290529/photo/emperors.jpg?s=612x612&w=0&k=20&c=ZApZFJtKoXGKYYJsgNcNPTMHqqSbbAx9CBg2AF2qyJk=";
     colSpan = 2;
+    isActive = true;
     // getDescription(){
     //     return this.title + " are: "; 
     // }
@@ -41,12 +53,28 @@ export class CoursesComponents{
     // Logic for calling an HTTP service should not be here.
     // It should be in the SERVICE file.
 
-    courses;
+    
     // constructor(){
     //     let service = new CoursesService();
     //     this.courses = service.getCourses();
     // }
     constructor(service: CoursesService){
         this.courses = service.getCourses();
+    }
+
+    onDelete(){
+        console.log("Delete clicked");
+    }
+
+    onSave($event){
+        console.log("Save Clicked", $event);
+    }
+
+    onDivClick(){
+        console.log("div clicked");
+    }
+    onBubbleClick($event){
+        $event.stopPropagation();
+        console.log("Event Bubbling");
     }
 }

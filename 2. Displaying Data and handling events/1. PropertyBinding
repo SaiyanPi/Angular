@@ -1,6 +1,7 @@
 PROPERTY BINDING
 
-- as we already know from the Angular Fundamentals, we can render the property and methods using interpolation.
+- as we already know from the Angular Fundamentals, we can render the property and methods using 
+interpolation.
 - another way to do so is PROPERTY BINDING.
 - inspect ProjectAngular/courses.components.ts file to view implementation.
 

@@ -1,0 +1,53 @@
+EVENT BINDING
+
+- used to handle events raised from the DOM like mouse movements, clicks, key strokes etc.
+-eg, 
+        <button (click)="onDelete()">Delete</button>
+
+        export class SomeClass{
+            //
+            onDelete(){
+                console.log("clicked delete");    <!-- just a 'clicked delete' message on console.-->
+            }
+            //
+        }
+        
+
+- sometimes we need to get access to the event object that was raised in the even handler.
+    -> for example, with mouse movement, the event object will tell the x & y position. if
+    we want to get access to that even object, we need to pass '$event' as a method parameter.
+    -> eg,
+            <button (click)="onDelete($event)">Delete</button>
+
+            export class SomeClass{
+                //
+                onDelete($event){
+                    console.log("clicked delete");  <!-- 'clicked delete' message on console with event obj.-->
+                }
+                //
+            }
+
+
+
+EVENT BUBBLING
+
+- all the DOM events bubble up the tree unless a handler along the way prevents further bubbling.
+- to prevent event bubbling we need to pass a standard method 'stopPropagation()'
+    -> for eg, 
+                <div (click)="onDivClick()">
+                <button (click)="onBubbleClick($event)">Bubble</button>
+                </div>
+
+                export class SomeClass{
+                    //
+                    onDivClick(){
+                        console.log("div clicked");
+                    }
+                    onBubbleClick($event){
+                        $event.stopPropagation();
+                        console.log("Clicked Bubble");
+                    }
+                }
+
+    -> passing a 'stopPropagation()' method stops hitting the <div> handler. hence only showing 
+       "Clicked Bubble" message with the event objects on the console.

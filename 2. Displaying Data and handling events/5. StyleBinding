@@ -1,0 +1,14 @@
+STYLE BINDING
+
+- variation of property binding
+- very similar to class bindingf.
+- eg,
+    <button [style.backgroundColor]="isActive ? 'red' : 'white'">Delete</button>
+
+    export class SomeClass{
+        //
+        status = true;
+        //
+    }
+
+- for a list of style object: https://www.w3schools.com/jsref/dom_obj_style.asp

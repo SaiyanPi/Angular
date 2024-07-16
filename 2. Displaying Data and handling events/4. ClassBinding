@@ -1,0 +1,21 @@
+CLASS BINDING
+
+- when we want to add additional classes to the element based on some condition
+- for eg, 
+    <button class="btn btn-primary">Save</button>  
+    here we have a bootstrap button class 'btn btn-primary'
+
+- we can add another class 'active' to the above button element based on the state
+of underlaying component like
+
+    <button class="btn btn-primary" [class.active]="status">Save</button>
+
+    export class SomeClass{
+        //
+        status = true;
+        //
+    }
+
+- if the status is set to true then the 'isActive' is added to the button class and vice versa.
+    -> if status = true then class = "btn btn-primary active"
+    -> if status = false then class = "btn btn-primary"
