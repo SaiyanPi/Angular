@@ -1,0 +1,51 @@
+CUSTOM PIPES
+
+- creating a custom 'summary' pipe to use in text like
+    {{ text | summary }}
+
+    export class SomeClass{
+        //
+        text = `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`
+        //
+    }
+
+- steps:
+    1. create a 'summary.pipes.ts' file.
+        import { Pipe, PipeTransform } from '@angular/core';
+
+        @Pipe({
+            name:'summary'
+        })
+
+        export class SummaryPipe implements PipeTransform {
+            transform(value: string, args?:any) {
+                if(!value)
+                    return null;
+                return value.substring(0, 40) + '....';
+            }
+        }
+
+    2. just like components and services, we need to register the 'SummaryPipe' 
+    into our 'app.module.ts' file.
+
+- voila!! that's it now we can use our custom 'summary' pipe.
+- to take it to the NEXT LEVEL, let's supply an argument(set the number of characters in our summary)
+  to the summary pipe. right now in above code it is set to 40 and we cannot change that.
+
+        import { Pipe, PipeTransform } from '@angular/core';
+
+        @Pipe({
+            name:'summary'
+        })
+
+        export class SummaryPipe implements PipeTransform {
+            transform(value: string, limit?:number) {            <!--added limit parameter-->
+                if(!value)
+                    return null;
+            let actualLimit = (limit) ? limit : 40;              <!--added new property-->
+                return value.substring(0, actualLimit) + '....';
+            }
+        }
+
+        -> now we will be able to pass an argument in our summary pipe like
+            {{ text | summary: 20 }}

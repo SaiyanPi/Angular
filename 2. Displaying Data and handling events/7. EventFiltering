@@ -1,0 +1,24 @@
+EVENT FILTERING
+
+-   <input (keyup) = "onKeyUp($event)" />
+
+    export class SomeClass(){
+        //
+        onKeyUp($event){
+            if($event.keyCode === 13){
+                console.log("enter was pressed);
+            }
+        }
+    }
+
+
+- better way:
+
+    <input (keyup.enter) = "onKeyUp()" />                     <!--no need to pass $event parameter-->
+
+    export class SomeClass(){
+        //
+        onKeyUp(){
+            console.log("enter was pressed");
+        }
+    }

@@ -1,0 +1,34 @@
+TWO-WAY BINDING
+
+- code we wrote on TEMPLATE VARIABLE works fine but we can do beter.
+- in OOP we shouldn't pass parameter around because an object encapsulates some data and behaviour
+- so if the object or a class have all the data we need, we don't need to pass the parameter 
+  around like.
+                <input #greet (keyup.enter)="method(greet.value)"/>
+
+                export class SomeClass(){
+                    //
+                    method(greet){
+                    console.log(greet);
+                    }
+                    //
+                }
+                -> this kind of code is what we call a procedural programming.
+
+
+- better way:
+                <input [(ngModel)] = "email" (keyup.enter)="method()"/>
+
+                export class SomeClass(){
+                    //
+                    email = "me@example.com";
+
+                    method(){
+                    console.log(this.email);
+                    }
+                    //
+                }
+                -> 'ngModel' directive is defined in one of the 'forms' module and by default it
+                   is not imported into our application.
+                -> so if we want to use the 'ngModel' directive we need to import it first on
+                   app.module.ts file.

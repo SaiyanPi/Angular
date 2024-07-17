@@ -1,0 +1,27 @@
+PIPES
+
+- built-in PIPES
+    -> Uppercase
+    -> Lowercase
+    -> Decimal
+    -> Currency
+    -> Percent
+
+- eg, 
+        {{ book.title | uppercase}} <br>                    // HOW TO CODE LIKE A PRO
+        {{ book.price | currency:'AUD'}} <br>               // A$400.99
+        {{ book.author | uppercase}} <br>                   // NEERAJAN RAI
+        {{ book.rating |number:'1.1-1'}} <br>               // 4.9
+        {{ book.sold |number}} <br>                         // 19,082
+        {{ book.relaseDate |date:'shortDate'}} <br>         // 4/1/16
+
+        export class SomeClass{
+            book = {
+                title: "How to Code like a Pro",
+                rating: 4.899,
+                sold: 19082,
+                author: "Neerajan Rai",
+                price: 400.99,
+                relaseDate: new Date(2016,3,1)
+            }
+        }

@@ -1,0 +1,24 @@
+TEMPLATE VAIRABLES
+
+- get a typed value from input field.
+- there are 2 ways:
+- 1.
+        <input (keyup.enter) = "onKeyUp($event)" />
+
+        export class SomeClass(){
+            //
+            onKeyUp($event){
+                console.log($event.target.value);
+            }
+        }
+
+
+- 2.
+        <input #email (keyup.enter) = onKeyUp(email.value) />
+
+        export class SomeClass(){
+            //
+            onkeyUp(email){
+                console.log(email);
+            }
+        }
