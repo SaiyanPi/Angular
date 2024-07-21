@@ -1,0 +1,33 @@
+OUTPUT PROPERTIES
+
+- able to be notified when user clicks to our favourite component.
+- favourite component will raise an custom event.
+
+    (app.component.html)
+    <favourite (change)="onFavouriteChanged()"></favourite>
+
+    (app.component.ts)
+    export class AppComponent {
+        //
+        onFavouriteChanged(){
+            console.log('Favourite Changed');
+        }
+        //    
+    }
+
+    (favourite.component.html)
+    <button(click)="toggleFavourite()">Output</button>
+    
+    (favourite.component.ts)
+    import { Component, Output, EventEmitter } from '@angular/core';
+    //
+    export class FavouriteComponent {
+        //
+        @Output() change = new EventEmitter();
+        toggleFavourite(){       
+            this.change.emit();
+            //
+        }
+    }
+
+    -> note that 'Output' and 'EventEmitter' are imported from angular/core.

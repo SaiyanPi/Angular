@@ -1,0 +1,6 @@
+<h2>{{ title }}</h2>
+<hr />
+<br>
+<!-- <favourite [isFavourite] = 'post.isFavourite'></favourite> -->
+
+<favourite [is-favourite] = 'post.isFavourite' (change)="onFavouriteChanged($event)"></favourite>

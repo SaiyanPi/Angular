@@ -1,0 +1,49 @@
+ALIASING INPUT PROPERTIES(NICK NAMING INPUT PROPERTIES)
+
+- what if we want to use 
+    @Input('is-favourite') isFavourite: boolean;
+  instead of 
+    <favourite [isFavourite] = 'post.isFavourite'></favourite>
+
+- in TypeScript or JavaScript we cannot have a property name like 'is-favourite'.
+- so the solution is to use alias like:
+
+    -> (favourite.component.ts) 
+        export class FavouriteComponent {
+            //
+            @Input('is-favourite') isFavourite: boolean;
+            //
+        }
+
+    -> now back in (app.component.html)
+        <favourite [is-favourite] = 'post.isFavourite'></favourite>
+
+BENIFIT of using Alias:
+- it keeps the contract of api stable.
+- explanation. 
+    -> if we change the property name using F2 in (favourite.component.ts), new name will replace
+    old property name in all places in that file but it doesn't change the property name in other file.
+    for example in app.xomponent.html where property binding is done.
+    -> so to minimize the effect of this change we should use alias because the 'magic string'(alia-name)
+    doesn't have any effect even if we change the property name
+
+        (app.component.html)
+        @Input('is-favourite') isFavourite: boolean;
+
+        (favourite.component.ts) 
+        export class FavouriteComponent {
+            //
+            @Input('is-favourite') isFavourite: boolean; 
+            OR
+             @Input('is-favourite') isSelected: boolean;            <!--same alias name>
+            OR
+             @Input('is-favourite') isWhatever: boolean;            <!--same alias name>
+            //
+        }
+
+- though we still need to change the property name in out favourote.component.html file,
+number of files that needs to be looked/edit remains less compare to without using alias.
+            (favourote.component.html)
+            <button 
+            [style.backgroundColor]="isSelected ? 'green' : 'white'" 
+            (click)="toggleFavourite()">Input Prop</button>

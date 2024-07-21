@@ -1,0 +1,7 @@
+COMPONENT API
+
+- inorder to make component more reusable we need to add a bunch of input and output properties.
+- INPUT properties:
+    -> to pass state to component
+- OUTPUT properties:
+    -> to raise events from a component

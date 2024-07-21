@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';              // for two-way bindin
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoursesComponents } from './courses.component';
-import { CourseComponent } from './course/course.component';
+
 import { CoursesService } from './courses.service';
 import { SummaryPipe } from './summary.pipe';              // for custom pipe
 
@@ -12,7 +12,6 @@ import { SummaryPipe } from './summary.pipe';              // for custom pipe
   declarations: [
     AppComponent,
     CoursesComponents,
-    CourseComponent,
     SummaryPipe          // custom pipe     
   ],
   imports: [

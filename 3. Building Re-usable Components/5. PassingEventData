@@ -1,0 +1,82 @@
+PASSING EVENT DATA
+
+- in the previous topic we've only passed a console message 
+- we can pass the data through events like:
+    (app.component.html)
+    <favourite (change)="onFavouriteChanged($event)"></favourite>          <!--$event for accessing object value-->
+
+    (app.component.ts)
+    export class AppComponent {
+        //
+        onFavouriteChanged(value: any){
+            console.log('Favourite Changed', value);    // passing value
+        }
+        // declaring value as 'any' is fine but let's use interface instead 
+    }
+
+    -> declaring value as 'any' is fine but let's use interface instead 
+
+        (app.component.ts)
+        interface FavouriteChangedEventArgs {
+        newValue: boolean;  
+        }
+
+        export class AppComponent {
+            //
+            onFavouriteChanged(value: FavouriteChangedEventArgs){
+                console.log('Favourite Changed', value);    // passing value
+            }
+            // declaring value as 'any' is fine but let's use interface instead 
+        }
+
+    (favourite.component.html)
+    <button(click)="toggleFavourite()">Output</button>
+    
+    (favourite.component.ts)
+    import { Component, Output, EventEmitter } from '@angular/core';
+    //
+    export class FavouriteComponent {
+        //
+        isFavourite = false; 
+        @Output() change = new EventEmitter();
+
+        toggleFavourite(){  
+             this.isFavourite =!this.isFavourite;     
+            this.change.emit(this.isFavourite);                  // passing a boolean value
+            this.change.emit({ newValue: this.isFavourite });    // passing an object with property 'newValue' which is a boolean
+            //
+        }
+    }
+
+- if we are building re-usable component then, we wanna declare the interface in our implementation
+and export it from our module. and then any consumers can import this from our module.
+    (favourite.component.ts)
+    import { Component, Output, EventEmitter } from '@angular/core';
+    //
+    export class FavouriteComponent {
+        //
+        isFavourite = false; 
+        @Output() change = new EventEmitter();
+
+        toggleFavourite(){  
+             this.isFavourite =!this.isFavourite;     
+            this.change.emit(this.isFavourite);                  // passing a boolean value
+            this.change.emit({ newValue: this.isFavourite });    // passing an object with property 'newValue' which is a boolean
+            //
+        }
+    }
+
+    export interface FavouriteChangedEventArgs {
+        newValue: boolean;  
+    }
+
+    now, (app.component.ts) will be
+        import { FavouriteChangedEventArgs } from './favourite/favourite.component';
+
+        export class AppComponent {
+            //
+            onFavouriteChanged(value: FavouriteChangedEventArgs){
+                console.log('Favourite Changed', value);    // passing value
+            }
+            // 
+        }

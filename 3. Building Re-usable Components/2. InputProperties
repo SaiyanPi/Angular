@@ -1,0 +1,71 @@
+INPUT PROPERTIES
+
+- in project 'ReusableComponent', based on the boolean value of a property the color of button
+  should change: "isFavourite ? 'green' : 'white'"
+
+            (app.component.html)
+            <favourite [isFavourite] = 'post.isSelected'></favourite>  <!--property binding-->
+
+            (app.component.ts)
+            export class AppComponent {
+                title = 'ReusableComponent';
+                post = {
+                    isSelected: true
+                }
+            }
+
+            (favourite.component.htrml)
+            <button [style.backgroundColor]="isFavourite ? 'green' : 'white'" (click)="toggleFavourite()">Input Prop</button>
+            
+            (favourite.component.ts)
+            export class FavouriteComponent {
+                    //
+                isFavourite: boolean;                           // property
+                constructor() { 
+                    this.isFavourite = false; 
+                }
+                toggleFavourite(){
+                    this.isFavourite =!this.isFavourite;
+                }
+                    //
+            }
+- 2 ways
+    1) import 'Input' decorator function.
+        (favourite.component.ts)
+        ->  import { Component, Input } from '@angular/core';         // importing input 
+         
+            export class FavouriteComponent {
+                        //
+                    @Input() isFavourite: boolean;                    // adding infront of property
+                    constructor() { 
+                        this.isFavourite = false; 
+                    }
+                    toggleFavourite(){
+                        this.isFavourite =!this.isFavourite;
+                    }
+                        //
+            }
+
+    2) declare the field as an input property in the component meta data.
+        (favourite.component.ts)
+        ->  import { Component } from '@angular/core';         // importing input 
+
+            @Component({
+                //
+            inputs: ['isFavourite'] 
+            })
+
+            export class FavouriteComponent {
+                        //
+                    isFavourite: boolean;                    // adding infront of property
+                    constructor() { 
+                        this.isFavourite = false; 
+                    }
+                    toggleFavourite(){
+                        this.isFavourite =!this.isFavourite;
+                    }
+                        //
+            }
+
+        -> this approach works fine until you rename the property name using F2. 
+           input property name in the component meta data doesn't change, you have to manually change.
