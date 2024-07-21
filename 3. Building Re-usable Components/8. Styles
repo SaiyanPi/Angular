@@ -1,0 +1,28 @@
+STYLES
+
+- there are 3 ways to apply styles to the component:
+    1) using styleUrls in the component meta data to specify the path of style.
+        styleUrl: './favourite.component.css',
+    2) using styles property in the component meta data to write inline styles.
+        styles: [
+            '
+            //
+            '
+        ]
+    3) writing the styles inline in our html template 
+        (favourite.component.html)
+        <style>
+            //
+        </style>
+        <button [style.backgroundColor]="isFavourite ? 'green' : 'white'" (click)="toggleFavourite()">Input Prop</button>
+        //
+
+
+- for the purpose of finding out style overwrite.
+    1) styleUrl = red
+    2) style = green
+    3) html template style = blue
+
+    -> method 3) always overwrites methods 1) and 2).
+    -> between methods 1) and 2), 2) overwrite 1).
+       

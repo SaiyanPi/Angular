@@ -3,4 +3,12 @@
 <br>
 <!-- <favourite [isFavourite] = 'post.isFavourite'></favourite> -->
 
-<favourite [is-favourite] = 'post.isFavourite' (change)="onFavouriteChanged($event)"></favourite>
+<app-favourite [is-favourite] = 'post.isFavourite' (change)="onFavouriteChanged($event)"></app-favourite>
+<hr>
+<bootstrap-panel>
+    <ng-container class="head">HEADING</ng-container> 
+    <div class="body">
+        <h3>Body</h3>
+        <p>some content here ...</p>
+    </div>
+</bootstrap-panel>

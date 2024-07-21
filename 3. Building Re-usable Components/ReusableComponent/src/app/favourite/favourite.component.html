@@ -1,3 +1,8 @@
+<!-- <style>
+    .demo{
+    color: blue;
+    }
+</style> -->
 <button [style.backgroundColor]="isFavourite ? 'green' : 'white'" (click)="toggleFavourite()">Input Prop</button>
 
 <!-- <span
@@ -6,3 +11,11 @@ class="glyphicon"
 [class.glyphicon-star-empty] = "!isFavourite"
 (click)="toggleFavourite()"
 ></span> -->
+
+<h3 class="demo style-overwrite">For Styles overwrite</h3>
+
+<button class="btn btn-primary">click</button>
+<!-- <button class="btn"
+[class.btn-primary] = "isFavourite"
+[class.btn-secondary = "!isFavourite"
+(click)="toggleFavourite()">Press</button> -->

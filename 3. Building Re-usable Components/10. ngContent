@@ -1,0 +1,44 @@
+NGCONTENT
+
+- if we are building re-usable component always prefix them
+    @Component({
+    selector: 'bootstrap-panel',                  // prefix the component, could be app-panel,...
+    templateUrl: './panel.component.html',
+    styleUrl: './panel.component.css'
+    })
+
+- let's make the panel.component.html dynamic
+  so that the consumer will be able to inject the text or markup into this component.
+            <div class="panel panel-default">
+            <div class="panel-heading">Heading....</div>
+            <div class="panel-body mt-4">Body.....</div>
+            </div>
+
+
+- (panel.component.html)
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <ng-content select=".head"></ng-content>
+        </div>
+        <div class="panel-body mt-4">
+            <ng-content select=".body"></ng-content>
+        </div>
+    </div>
+
+    (app.component.html)
+        <bootstrap-panel>
+            <div class="head">
+                <h2>Heading</h2>
+            </div>
+            <div class="body">
+                <h3>Body</h3>
+                <p>some content here ...</p>
+            </div>
+        </bootstrap-panel>
+
+        -> we don't need a selector like 
+            <ng-content select=".head"></ng-content>
+            <ng-content select=".body"></ng-content>
+           if we have only one ng-content.
+           since we have two ng-content; for heading and for a body, we are using selector like 
+           select=".body" & select=".head"

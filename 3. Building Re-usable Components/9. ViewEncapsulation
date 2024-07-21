@@ -1,0 +1,44 @@
+VIEW ENCAPSULATION
+
+
+-   import { Component, ViewEncapsulation } from '@angular/core';
+
+    @Component({
+    //
+    encapsulation: ViewEncapsulation.Emulated
+    //
+    })
+- enum ViewEncapsulation has 3 members
+    1) .ShadowDom
+    2) .Emulated
+    3) .None
+
+1) SHADOW DOM:
+    -> allows us to apply scoped styles to elements without bleeding out to the outer world.
+    -> not all browser support this.
+    -> in favourote.component.ts,
+
+        'encapsulation: ViewEncapsulation.ShadowDom' 
+
+        then in favourote.component.html,
+
+         '<button class="btn btn-primary">click</button>'
+
+        will not show a bootstrap primary button because the only styles applied to this element is 
+        from the favourite.component.css
+    -> if we want to bring bootstrap then we need to import the bootstrap in favourite.component.css(not suggested)
+
+2) EMULATES:
+    -> angular tries to emulate the concept of shadowDom.
+    -> default value.(99.9% of the time we are not gonna change the value from emulated to other)
+    -> angular attaches attribute like '_ngcontent-ng-c40609' to the elements and uses it to apply
+        the styles on the element with the same attribute name. This prevents styles bleeding.
+        (see ViewEncapsulation.Emulated.PNG in the folder) 
+    -> unlike ShadowDom, Bootstrap works!
+
+3) NONE:
+    -> doesn't prevent styles bleeding.
+
+
+THIS IS JUST TO UNDERSTAND THE TERM 'VIEWENCAPSULATION' 99.9% OF THE CASES WE DON'T NEED TO CHANGE THE 
+DEFAULT VALUE(.Emulated) SO DO NOT BOTHER WITH THIS PROPERTY.

@@ -1,0 +1,47 @@
+NGCONTAINER
+
+- if we want to render something without putting inside a div or any other html element
+  we use ng-container.
+
+- without ng-container:
+
+    (panel.component.html)
+        div class="panel-heading">
+            <ng-content></ng-content>      1)
+        </div>
+
+    (app.component.html)
+        <bootstrap-panel>
+            <h2>Topic-I</h2>               2)
+        </bootstrap-panel>
+
+    -> at run time line 1) is replaced by line 2) 
+
+        div class="panel-heading">
+            <h2>Topic-I</h2>     
+        </div>
+
+        - that's why we see the html elemet(<h2></h2> in this case) when we inspect the elements.
+        - but sometime we may want only 'Topic-I' and not the html elements like <div></div> 
+          or <h1></h1> etc.
+        
+- with ng-container:
+    (panel.component.html)
+        div class="panel-heading">
+            <ng-content></ng-content>                   1)
+        </div>
+
+    (app.component.html)
+        <bootstrap-panel>
+            <ng-container>Topic-I<ng-container>         2)
+        </bootstrap-panel>
+
+        -> again, at run time line 1) is replaced by line 2)
+            
+            div class="panel-heading">
+                Topic-I    
+            </div>
+
+            - now if we inspect the elements we don't see any html elements.
+
+- see images (without_ng-container.png) & (with_ng-container.png)

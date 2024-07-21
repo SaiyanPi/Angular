@@ -1,0 +1,9 @@
+TEMPLATES
+
+- so far we've seen 2 forms of using template on a component.
+    1) using templateUrl in the component meta data to specify the path of the template file. 
+    (see proj ReusableComponent)
+    2) using template property in the component meta data to add the inline template. 
+    (see proj ProjectAngular)
+
+- we cannot mix these 2 approaches
