@@ -1,0 +1,10 @@
+<h2>{{title}}</h2>
+<hr>
+
+<div *ngIf="courses.length > 0; then yesCourses else noCourses"></div>
+<ng-template #yesCourses>
+  List of courses
+</ng-template>
+<ng-template #noCourses>
+  No courses yet
+</ng-template>
