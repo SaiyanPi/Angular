@@ -7,7 +7,7 @@ DIRECTIVES
         -> whenever we are using STRUCTURAL directive we have to prefix them with an '*'.
         -> ngIf:
         
-            (old approachbefore angular 4)
+            (old approach before angular 4)
 
                 <div *ngIf="courses.length > 0">
                     List of courses
@@ -16,10 +16,11 @@ DIRECTIVES
                     No courses yet
                 </div>
 
-                Here if the length of 'course' property is greater than 0 then,
-                    - 'List of courses' element will be rendered to the DOM.
-                and similarly if the length of the 'course' property is equal to 0 then,
-                    - 'No courses yet' element will be rendered to the DOM
+                - Here if the length of 'course' property is greater than 0 then,
+                    * 'List of courses' element will be rendered to the DOM.
+                - and similarly if the length of the 'course' property is equal to 0 then,
+                    * 'No courses yet' element will be rendered to the DOM
+                - note that if we inspect the element we will only see the rendered element.
 
         -> instead of repeating ngIf twice, we can use it like 'if-else' statement. but instead of
            using html element we need to use '<ng-template></ng-template>'

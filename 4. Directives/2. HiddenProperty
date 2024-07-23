@@ -1,0 +1,32 @@
+HIDDEN PROPERTY
+
+
+- instead of using *ngIf directive to show or hide the element, we can use the [hidden] property.
+    
+                ->  <div hidden>
+                        This section is hidden but still visible in inspect element.
+                    </div>
+                    <div>
+                        This section will be visible.
+                    </div>
+
+                ->  <div [hidden]="courses.length == 0">
+                        list of courses
+                    </div>
+                    <div [hidden]="courses.length > 0">
+                        no courses yet
+                    </div>
+
+- WHAT'S THE DIFFERENCE BETWEEN *ngIf and [hidden] PROPERTY?
+    -> when we use *ngIf in the element and the condition evaluates to false then that element is
+       removed from the DOM.
+    -> but when we use the [hidden] property, element is just hidden from the view 
+       but still exists in the DOM.
+
+- WHICH IS BETTER?
+    -> if we are working on a large element tree with a lot of DOM objects it's better to use ngIf.
+        because those elements can take a lot of computing resources and a memory. we don't wanna put
+        them in DOM if we are not going to show them to user because angular will continue to check for 
+        changes even for a invisible element hence wasting the resources. so, to cut off the unnecessary
+        elements and hence saving the resources, we use ngIf.
+    -> for small elements tree it's best to use [hidden] property.

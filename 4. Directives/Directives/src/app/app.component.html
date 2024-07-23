@@ -1,6 +1,7 @@
-<h2>{{title}}</h2>
+<h1>{{maintitle}}</h1>
 <hr>
 
+<h2>{{titleOne + " :"}}</h2>
 <div *ngIf="courses.length > 0; then yesCourses else noCourses"></div>
 <ng-template #yesCourses>
   List of courses
@@ -8,3 +9,21 @@
 <ng-template #noCourses>
   No courses yet
 </ng-template>
+<hr>
+
+
+<h2>{{titleTwo + " :"}}</h2>
+<div hidden>
+  This section is hidden but still visible in inspect element.
+</div>
+<div>
+  This section will be visible.
+</div>
+<br>
+<div [hidden]="courses.length == 0">
+  list of courses
+</div>
+<div [hidden]="courses.length > 0">
+  no courses yet
+</div>
+

@@ -6,7 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Directives';
+  maintitle = 'Directives';
+  titleOne = 'ngIf';
+  titleTwo = 'hidden property';
 
   courses = [1,2];
 }
