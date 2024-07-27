@@ -5,7 +5,7 @@ DIRECTIVES
     1) Structural
         -> Modify the structure of the DOM.
         -> whenever we are using STRUCTURAL directive we have to prefix them with an '*'.
-        -> ngIf:
+        -> ngIf(directive):
         
             (old approach before angular 4)
 

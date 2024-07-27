@@ -1,0 +1,10 @@
+ngFor DIRECTIVE
+
+-   
+    <ul>
+        <li *ngFor="let book of books; odd as isOdd"> <!--index is exported value, there are others-->
+            {{book.name}} <span *ngIf="isOdd">(ODD)</span>
+        </li>
+    </ul>
+
+    -> here 'odd' is an exported value. visit https://angular.dev/api/common/NgForOfContext

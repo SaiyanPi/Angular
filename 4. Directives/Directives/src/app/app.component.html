@@ -26,4 +26,46 @@
 <div [hidden]="courses.length > 0">
   no courses yet
 </div>
+<hr>
 
+ <!-- Bootstrap nav pill -->
+<ul class="nav nav-pills">
+  <li class="nav-link active">Bootstrap nav pill</li>
+</ul>
+<br>
+<!---->
+<h2>{{titleThree + " :"}}</h2>
+<ul class="nav nav-pills">
+  <li class="nav-link" [class.active]="viewMode == 'map'"> <!--active is added to class if property value equals'map'-->
+    <a (click)="viewMode = 'map'">Map View</a>    <!--clicking will set a property value to 'map'-->             
+  </li>
+  <li class="nav-link" [class.active]="viewMode == 'list'">
+    <a (click)="viewMode = 'list'">List View</a>
+  </li>
+</ul>
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'map'">Map view content</div>
+  <div *ngSwitchCase="'list'">List view content</div>
+  <div *ngSwitchDefault>Otherwise</div>
+</div>
+<hr>
+
+
+<h2>{{titleFour + " :"}}</h2>
+<ul>
+  <li *ngFor="let book of books; odd as isOdd"> <!--index is exported value, there are others-->
+   {{book.name}} <span *ngIf="isOdd">(ODD)</span> <!--if 'isOdd' is true then only (ODD) will be added-->
+  </li>
+</ul>
+<hr>
+
+
+<h2>{{titleFive + " :"}}</h2>
+<button (click)="addBook()">Add</button>
+<ul>
+  <li *ngFor="let book of books; index as i">
+    {{i}} - {{book.name}}
+    <button (click)="removeBook(book)">Remove</button>
+    <button (click)="editBook(book)">Change</button>
+  </li>
+</ul>

@@ -1,0 +1,28 @@
+ngFor AND CHANGE DETECTION
+
+
+
+-       <button (click)="addBook()">Add</button>
+        <ul>
+            <li *ngFor="let book of books; index as i">
+                {{i}} - {{book.name}}
+                <button (click)="removeBook(book)">Remove</button>
+                <button (click)="editBook(book)">Change</button>
+            </li>
+        </ul>
+
+        books = [
+            {id: 1, name: 'Atomic Habits'},
+            {id: 2, name: 'Sunconscious Mind'},
+            {id: 3, name: 'Into The Wild'},
+        ];
+        addBook(){
+            this.books.push({id: 4, name: 'Infulence People'}); 
+        }
+        removeBook(book: any) {
+            let index = this.books.indexOf(book);
+            this.books.splice(index, 1);
+        }
+        editBook(book: any) {
+            book.name = 'Updated Book';
+        }

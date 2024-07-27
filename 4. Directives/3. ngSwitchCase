@@ -1,0 +1,26 @@
+*ngSwitchCase DIRECTIVE
+
+- if we wanna compare the value of the field or property aginst multiple values 
+    then we need to use ngSwitchCase.
+
+            <ul class="nav nav-pills">
+                <li class="nav-link" [class.active]="viewMode == 'map'">
+                    <a (click)="viewMode = 'map'">Map View</a>
+                </li>
+                <li class="nav-link" [class.active]="viewMode == 'list'">
+                    <a (click)="viewMode = 'list'">List View</a>
+                </li>
+            </ul>
+            <div [ngSwitch]="viewMode">
+                <div *ngSwitchCase="'map'">Map view content</div>     // 1)
+                <div *ngSwitchCase="'list'">List view content</div>   // 2)
+                <div *ngSwitchDefault>Otherwise</div>
+            </div>
+
+            -> here, depending upon the value(map or list) of property 'viewMode',
+                we will be rendering the div element body.
+                - if viewMode == 'map' then 1)
+                - IF viewMode == 'list' then 2)
+            -> if we click on a 'Map view' the value of property viewMode will be set to 'map'.
+                similarly, if we click on a 'List view' the value of property viewMode will be 
+                set to 'list'
