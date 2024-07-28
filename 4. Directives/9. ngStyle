@@ -1,0 +1,24 @@
+ngStyle:
+
+- when we are dealing with multiple style binding, we can cleanup the code using ngStyle
+    directive.
+
+    <button
+    [style.backgroundColor]="canSave ? 'blue' : 'white'"
+    [style.color]="canSave ? 'white' : 'black'"
+    [style.fontWeight]="canSave ? 'bold' : 'normal'"
+    >style</button>
+
+
+    canSave = false;
+
+
+- with style binding:
+
+    <button
+    [ngStyle]="{
+    'background' : canSave ? 'blue' : 'white',
+    'color' : canSave ? 'white' : 'black',
+    'fontWeight' : canSave ? 'bold' : 'normal'
+    }"
+    >style</button>

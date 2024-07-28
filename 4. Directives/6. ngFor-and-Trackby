@@ -1,0 +1,60 @@
+ngFor ANF TRACKBY
+
+- if we are dealing with the large list with complex markup, and we do observe performance
+    problem in the page we need to use 'Trackby' to improve the performance.
+- no need to use in small list of data.
+
+                        companies;
+                        loadCompanies(){
+                            this.companies = [
+                            {id: 1, name: 'Google'},
+                            {id: 2, name: 'Facebook'},
+                            {id: 3, name: 'Microsoft'},
+                            ];
+                        }
+
+                        <h2>{{titleSix + ' :'}}</h2>
+                        <button (click)="loadCompanies()">LOad Courses</button>
+                        <ul>
+                        <li *ngFor="let company of companies">{{company.name}}</li>
+                        </ul>
+
+                -> here, everytime we click the load button, angular is reconstructing this ul element.
+                -> in other word, angular is downloading the same data list from server everytime we click
+                    load.
+                -> in this case this is fast since the data list is small.
+                -> we can optimize this by using 'Trackby'.
+
+-> angular by default tracks objects by their identity. 
+    for eg in the above code, 
+    we have 3 objects and they have 3 different refrences in the memory.
+    even though we are dealing with the exact same content, every time we click the load button
+    and render the object, these objects will be different from the previous ones in the memory.
+    and angular see these objects as a new that's why it reconstructs that DOM tree.
+
+-> INSTEAD OF TRACKING OBJECTS BY THEIR IDENTITY(MEMORY REFERENCE), WE ARE GOING TO TRACK THEM BY 
+    THEIR ID. so that angular doesn't rerender them.
+
+
+                        companies;
+                        loadCompanies(){
+                            this.companies = [
+                            {id: 1, name: 'Google'},
+                            {id: 2, name: 'Facebook'},
+                            {id: 3, name: 'Microsoft'},
+                            {id: 4, name: 'Apple'},
+                            ];
+                        }
+                        trackCompanies(index, company){
+                            return company ? company.id : undefined;
+                        }
+
+
+                        <button (click)="loadCompanies()">LOad Courses</button>
+                        <ul>
+                        <li *ngFor="let company of companies; trackBy: trackCompanies"> <!--trackCompanies is a reference of a method-->
+                            {{company.name}}
+                        </li>
+                        </ul>
+                
+                -> now, angular doesn't rerencer the objects.

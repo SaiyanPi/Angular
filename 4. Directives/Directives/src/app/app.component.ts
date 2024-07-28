@@ -12,8 +12,10 @@ export class AppComponent {
   titleThree = 'ngSwitchCase';
   titleFour = 'ngFor';
   titleFive = 'ngFor and change detection';
-
-  
+  titleSix = 'ngFor and Trackby';
+  titleEight = 'ngClass';
+  titleNine = 'ngStyle';
+  titleTen = 'safe traversal operator';
   // ngIf
   // hidden property
   courses = [1,2];
@@ -39,4 +41,37 @@ export class AppComponent {
   editBook(book: any) {
     book.name = 'Updated Book';
   }
+
+  //ngFor and Trackby
+  companies;
+  loadCompanies(){
+    this.companies = [
+      {id: 1, name: 'Google'},
+      {id: 2, name: 'Facebook'},
+      {id: 3, name: 'Microsoft'},
+      {id: 4, name: 'Apple'},
+    ];
+
+  }
+  trackCompanies(index, company){
+    return company ? company.id : undefined;
+  }
+
+  //ngClass
+  isPrimary = true;
+  toggleButton(){
+    this.isPrimary =!this.isPrimary;
+  }
+
+  //ngStyle
+  canSave = false;
+
+  // safe traversal operator
+ task = {
+  title: 'Complete Angular Course',
+  // assignee: {
+  //   name: 'John Doe'
+  // },
+  assignee: null,
+ }
 }

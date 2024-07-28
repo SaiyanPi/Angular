@@ -1,0 +1,18 @@
+SAFE TRAVERSAL/NAVIGATION OPERATOR
+
+        task = {
+            title: 'Complete Angular Course',
+            assigne: null
+            completed: false
+        }
+
+        <span>{{task.assigne.name}}</span>
+
+        -> error: Object is possibly 'null'
+
+- we can solve this in 2 ways: 
+    1) using *ngIf
+    2) using safe traversal OPERATOR
+
+2) <span>{{task.assigne?.name}}</span>
+    -> if assigne is non-existent or null, the ? won't cause our code to drown in errors.

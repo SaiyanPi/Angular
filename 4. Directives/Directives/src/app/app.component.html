@@ -59,7 +59,7 @@
 </ul>
 <hr>
 
-
+isPrimary;isPrimary;
 <h2>{{titleFive + " :"}}</h2>
 <button (click)="addBook()">Add</button>
 <ul>
@@ -68,4 +68,37 @@
     <button (click)="removeBook(book)">Remove</button>
     <button (click)="editBook(book)">Change</button>
   </li>
-</ul>
+</ul><hr>
+
+
+<h2>{{titleSix + ' :'}}</h2>
+<button (click)="loadCompanies()">LOad Courses</button>
+<ul>
+  <li *ngFor="let company of companies; trackBy: trackCompanies"> <!--trackCompanies is a reference of a method-->
+    {{company.name}}
+  </li>
+</ul><hr>
+
+
+
+<h2>{{titleEight+ ' :'}}</h2>
+<button class="btn" 
+[ngClass]="{
+  'btn-primary': isPrimary,
+  'btn-warning': !isPrimary
+}"
+(click) = "toggleButton()">Button</button><hr>
+
+
+<h2>{{titleNine+ ' :'}}</h2>
+<button
+[ngStyle]="{
+  'background' : canSave ? 'blue' : 'white',
+  'color' : canSave ? 'white' : 'black',
+  'fontWeight' : canSave ? 'bold' : 'normal'
+}"
+>style</button><hr>
+
+
+<h2>{{titleTen+ ' :'}}</h2>
+<span>{{ task.assignee?.name }}</span>

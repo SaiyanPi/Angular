@@ -1,0 +1,23 @@
+THE LEADING ASTERISK
+
+
+                <div *ngIf="courses.length > 0; else noCourse">
+                    List of courses
+                </div>
+                <ng-template>
+                    No course
+                </ng-template>
+
+        -> here by writing asterisk(*) before ngIf, we are telling angular re-write this <div> block
+            using <ng-template> element.
+
+        -> so our equivalent angular re-writen code will be
+
+                <ng-template [ngIf] = "courses.length > 0">
+                    <div>
+                        List of courses
+                    </div>
+                </ng-template>
+                <ng-template [ngIf] = "!(courses.length > 0)">
+                    No course
+                </ng-template>

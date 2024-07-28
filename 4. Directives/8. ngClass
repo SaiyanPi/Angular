@@ -1,0 +1,25 @@
+ngClass:
+
+- ngClass makes class binding easy.
+
+            <button class="btn" 
+            [class.btn-primary]="isPrimary"
+            [class.btn-warning]="!isPrimary"
+            (click) = "toggleButton()">Button</button>
+
+
+            isPrimary = true;
+            toggleButton(){
+                this.isPrimary =!this.isPrimary;
+            }
+
+- this can be achieved with class binding in a simpler way
+
+            <button class="btn" 
+            [ngClass]="{
+            'btn-primary': isPrimary,
+            'btn-warning': !isPrimary
+            }"
+            (click) = "toggleButton()">Button</button>
+
+            -> instead of using class binding 2 times, we can use ngClass once.
