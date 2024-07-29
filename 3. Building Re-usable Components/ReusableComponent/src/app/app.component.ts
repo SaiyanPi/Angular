@@ -13,7 +13,7 @@ import { FavouriteChangedEventArgs } from './favourite/favourite.component';
 export class AppComponent {
   title = 'ReusableComponent';
   post = {
-    isFavourite: true
+    isFavourite: false
   }
 
   // onFavouriteChanged() {

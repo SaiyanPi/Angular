@@ -16,6 +16,7 @@ export class AppComponent {
   titleEight = 'ngClass';
   titleNine = 'ngStyle';
   titleTen = 'safe traversal operator';
+  titleEleven = 'creating custom directives';
   // ngIf
   // hidden property
   courses = [1,2];
